@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600&display=swap');
+*{
+    background-color: #1E1E1E;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+h1{
+    text-align: center;
+}
+
+.post-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.postImage {
+  border-radius: 10px;
+  max-width: 50%;
+  min-width: 40%;
+ 
+}
+
+
+.feedImage{
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    width: 95%;
+    padding-bottom: 1rem;
+}
+
+
+
+.card {
+    max-width: 20vw;
+    margin: 0 auto;
+  }
+
+  .content {
+    text-align: left;
+    padding: 1vw;
+    border: 1px solid rgb(151, 151, 151);
+    border-radius: 30px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 200;
+    font-size: 19px;
+  }
+
+
+  a {
+    text-decoration: none;
+  }
+
+  p{
+    padding-bottom: 0.6rem;
+  }
+
+  .postText{
+      padding-top: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 38px;
+      max-width: 50vw;
+  }
+
+  .postHead{
+    text-align: left;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .mainCont{
+    padding-left: 2rem;
+  }
+
+
+
+  @media (min-width: 376px) {  
+    .post-grid{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 5px;
+    }
+
+    .card {
+      max-width: 80vw;
+      margin: 10px auto;
+    }
+
+    p{
+      margin-bottom: 2rem;
+    }
+
+    
+
+  }
+   
+  @media (min-width: 568px) {  
+    .post-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:10px;
+    }
+
+    .card {
+      max-width: 60vw;
+    }
+
+
+
+  }
+
+  @media (min-width: 992px) { 
+    .post-grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:15px;
+    }
+
+    .card {
+      max-width: 40vw;
+    }
+
+  }
+   
+
+  @media (min-width: 1200px) {  
+    .post-grid{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:20px; 
+    }
+  }
+   

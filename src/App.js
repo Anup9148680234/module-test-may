@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import { fetchPosts } from "./redux/actions/imageActions";
+import { useSelector, useDispatch } from "react-redux";
+import {Routes, Route} from 'react-router-dom'
+import HomePage from "./pages/Homepage";
+import Post from "./Components/Post";
+import Navbar from "./Components/Navbar";
+import './App.css'
 
-function App() {
+
+const App = () => {
+  let loading = useSelector((state) => state.loading);
+  let data = useSelector((state) => state.data);
+  let error = useSelector((state) => state.error);
+
+  let dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
+
+  if (loading) {
+    return <h2>Your Feed is Loading...</h2>;
+  }
+
+  if (error) {
+    return <div>Oops something went wrong : {error}</div>;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="header">
+        <Navbar />
+      </div>
+
+      <Routes>
+        <Route path="/" element={<HomePage data={data}/>}></Route>
+        <Route path="/item/:id" element={<Post data={data}/>}></Route>
+      </Routes>
+
+      
+    </>
   );
-}
+};
 
 export default App;
